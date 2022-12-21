@@ -11,8 +11,7 @@ insert into products(`name`, price, quantity) values ("today", 8, 5);
 insert into products(`name`, price, quantity) values ("lucky", 20, 2);
 insert into products(`name`, price, quantity) values ("admin", 40, 1);
 
-select a.`name`
-from (	select id, `name`, price*quantity as tich
-		from products         
-		order by tich desc, `name` asc) as a
+select `name`, price*quantity
+from products
+order by price*quantity desc, `name` asc
 limit 1;

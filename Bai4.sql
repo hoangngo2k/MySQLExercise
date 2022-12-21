@@ -12,7 +12,7 @@ insert into grades(id, `name`, midterm1, midterm2, final) values (54528, "Anthon
 insert into grades(id, `name`, midterm1, midterm2, final) values (58754, "Jonathan", 49, 58, 121);
 insert into grades(id, `name`, midterm1, midterm2, final) values (11000, "Jonty", 25, 30, 180);
 
-select id, `name` 
+select `name`, id
 from grades 
 where final > midterm1 + midterm2
 order by substring(`name`,1,3) asc;
