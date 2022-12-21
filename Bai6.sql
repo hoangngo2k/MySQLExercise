@@ -10,10 +10,8 @@ insert into user2(first_name, second_name, attribute) values ("Vincen", "Zo", "1
 insert into user2(first_name, second_name, attribute) values ("L", "Blanc", "%L_Blanc%");
 insert into user2(first_name, second_name, attribute) values ("H", "Maguire", "%H_Maguire%");
 insert into user2(first_name, second_name, attribute) values ("R", "Varane", null);
-insert into user2(first_name, second_name, attribute) values ("D", "Dalot", "351213%D_Dalot%d1323");
+insert into user2(first_name, second_name, attribute) values ("D", "Dalot", "351213%D_dalot%d1323");
 
 select first_name, second_name, attribute
-from user2, (	select concat("%", a.concatstr, "%") as concatstr1
-						from (	select concat_ws("_", first_name, second_name) as concatstr 
-								from user2	) as a	) as b
-where position(b.concatstr1 in attribute)!=0 ;
+from user2
+where position(concat("%", first_name, "_", second_name, "%") in binary attribute)!=0;
